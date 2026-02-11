@@ -62,25 +62,25 @@ export default function NovoMetricsPortfolio() {
     },
     {
       icon: <Clock className="w-8 h-8" />,
-      title: "Automated Pipelines",
-      description: "Scheduled data refresh and email delivery, reducing manual work by up to 90%."
+      title: "Automated Data Pipelines",
+      description: "Scheduled data refresh and email delivery, reducing manual work by up to 80%."
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: "Multi-user Access",
-      description: "Role-based permissions for founders, finance teams, and stakeholders with granular control."
+      title: "Accuracy & Control",
+      description: "Finance data is validated by a Chartered Accountant, ensuring accuracy and reliability in every deliverable."
     }
   ];
 
   const techStack = [
-    { category: "Frontend", items: ["R/Shiny", "Power BI", "Custom Dashboards"] },
-    { category: "Backend", items: ["R (ETL & Validation)", "MySQL Database", "API Connectors"] },
+    { category: "Frontend", items: ["Python/Shiny", "Power BI", "Custom Dashboards"] },
+    { category: "Backend", items: ["Python(ETL & Validation)", "MySQL/PostgreSQL", "API Connectors"] },
     { category: "Security", items: ["Auth0", "Role-based Access", "Data Encryption"] },
     { category: "Infrastructure", items: ["Cloud Hosting", "GitHub", "Automated Backups"] }
   ];
 
   const roadmap = [
-    { phase: "Phase 1", status: "completed", items: ["MySQL DBMS", "KPI Dashboards", "Manual/Scheduled Refresh", "Auth0 Integration"] },
+    { phase: "Phase 1", status: "completed", items: ["MySQL/PostgreSQL", "KPI Dashboards", "Manual/Scheduled Refresh", "Auth0 Integration"] },
     { phase: "Phase 2", status: "current", items: ["API-based Ingestion", "Automated ETL", "Multi-source Joins", "Email Reports"] },
     { phase: "Phase 3", status: "planned", items: ["Industry Benchmarking", "Threshold Alerts", "AI Projections", "Advanced Forecasting"] }
   ];
@@ -138,8 +138,8 @@ export default function NovoMetricsPortfolio() {
             </h1>
             
             <p className="text-xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Automated financial reporting and KPI dashboards for startups, healthcare, and MSMEs. 
-              Real-time visibility without enterprise complexity.
+              Automated financial reporting and KPI dashboards for your business. 
+              Real-time financial visibility without any complexity.
             </p>
 
             <div className="flex gap-4 justify-center flex-wrap">
@@ -163,6 +163,11 @@ export default function NovoMetricsPortfolio() {
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
               <div className="text-4xl font-bold text-blue-600 mb-2">90%</div>
               <div className="text-slate-600">Reduction in Manual Work</div>
+            </div>
+          <div className={`grid md:grid-cols-3 gap-6 mt-16 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
+              <div className="text-4xl font-bold text-blue-600 mb-2">Financial Data Quality</div>
+              <div className="text-slate-600">Timely. Accurate. Consistent. </div>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
               <div className="text-4xl font-bold text-blue-600 mb-2">Real-time</div>
@@ -196,7 +201,7 @@ export default function NovoMetricsPortfolio() {
                 We combine management-level KPI visibility with custom-built dashboards and automated data pipelines.
               </p>
               <p className="text-lg text-slate-600 leading-relaxed">
-                This is not a SaaS platform—it's a <strong>service-led automation business</strong> that delivers 
+                A <strong>service-led automation business</strong> that delivers 
                 lightweight financial systems without enterprise-level complexity or pricing.
               </p>
             </div>
@@ -210,7 +215,7 @@ export default function NovoMetricsPortfolio() {
                 <ul className="space-y-2 text-slate-600">
                   <li>• Manual Excel-based reporting</li>
                   <li>• Delayed month-end numbers</li>
-                  <li>• No real-time visibility for leadership</li>
+                  <li>• No real-time visibility for management/founders</li>
                   <li>• Data doesn't translate to insights</li>
                 </ul>
               </div>
@@ -488,7 +493,7 @@ export default function NovoMetricsPortfolio() {
             href="mailto:shwetha@novometrics.in"
             className="inline-block px-10 py-4 bg-white text-blue-700 rounded-xl text-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
           >
-            Schedule a Consultation
+            Schedule a Consultation : Ph +91 8197-163-069
           </a>
         </div>
       </section>
@@ -496,9 +501,9 @@ export default function NovoMetricsPortfolio() {
       {/* Footer */}
       <footer className="py-8 px-6 bg-slate-900 text-slate-400">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="mb-2">© 2026 NovoMetrics LLP. Financial Intelligence for Businesses.</p>
+          <p className="mb-2">© 2026 Novometric Solutions LLP. Financial Intelligence for Businesses.</p>
           <p className="text-sm">
-            <a href="https://novometrics.in" className="hover:text-blue-400 transition-colors">novometrics.in</a>
+            <a href="https://www.novometrics.in" className="hover:text-blue-400 transition-colors">novometrics.in</a>
           </p>
         </div>
       </footer>
