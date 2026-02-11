@@ -157,29 +157,39 @@ export default function NovoMetricsPortfolio() {
               </a>
             </div>
           </div>
+        {/* Stats */}
+        <div
+          className={`grid md:grid-cols-4 gap-6 mt-16 transition-all duration-1000 delay-300 ${
+            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
+            <div className="text-4xl font-bold text-blue-600 mb-2">90%</div>
+            <div className="text-slate-600">Reduction in Manual Work</div>
+          </div>
 
-          {/* Stats */}
-          <div className={`grid md:grid-cols-3 gap-6 mt-16 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
-              <div className="text-4xl font-bold text-blue-600 mb-2">90%</div>
-              <div className="text-slate-600">Reduction in Manual Work</div>
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
+            <div className="text-4xl font-bold text-blue-600 mb-2">
+              Financial Data Quality
             </div>
-          <div className={`grid md:grid-cols-3 gap-6 mt-16 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
-              <div className="text-4xl font-bold text-blue-600 mb-2">Financial Data Quality</div>
-              <div className="text-slate-600">Timely. Accurate. Consistent. </div>
-            </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
-              <div className="text-4xl font-bold text-blue-600 mb-2">Real-time</div>
-              <div className="text-slate-600">Financial Visibility</div>
-            </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
-              <div className="text-4xl font-bold text-blue-600 mb-2">100%</div>
-              <div className="text-slate-600">Custom Built Solutions</div>
+            <div className="text-slate-600">
+              Timely. Accurate. Consistent.
             </div>
           </div>
+
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
+            <div className="text-4xl font-bold text-blue-600 mb-2">Real-time</div>
+            <div className="text-slate-600">Financial Visibility</div>
+          </div>
+
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
+            <div className="text-4xl font-bold text-blue-600 mb-2">100%</div>
+            <div className="text-slate-600">Custom Built Solutions</div>
+          </div>
         </div>
-      </section>
+
+                </div>
+              </section>
 
       {/* About Section */}
       <section id="about" className="py-20 px-6 bg-white">
