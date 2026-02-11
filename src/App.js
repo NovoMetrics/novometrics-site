@@ -90,7 +90,7 @@ export default function NovoMetricsPortfolio() {
     : projects.filter(p => p.category === activeTab);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-700 ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
         <div className="max-w-7xl mx-auto px-6 py-4 backdrop-blur-xl bg-white/80 border-b border-slate-200/50 shadow-sm">
@@ -107,11 +107,11 @@ export default function NovoMetricsPortfolio() {
               </div>
             </div>
             <div className="hidden md:flex gap-8 text-sm font-medium">
-              <a href="#about" className="text-slate-600 hover:text-blue-300 transition-colors">About</a>
-              <a href="#projects" className="text-slate-600 hover:text-blue-300 transition-colors">Projects</a>
-              <a href="#features" className="text-slate-600 hover:text-blue-300 transition-colors">Features</a>
-              <a href="#tech" className="text-slate-600 hover:text-blue-300 transition-colors">Technology</a>
-              <a href="#contact" className="text-slate-600 hover:text-blue-300 transition-colors">Contact</a>
+              <a href="#about" className="text-slate-600 hover:text-blue-600 transition-colors">About</a>
+              <a href="#projects" className="text-slate-600 hover:text-blue-600 transition-colors">Projects</a>
+              <a href="#features" className="text-slate-600 hover:text-blue-600 transition-colors">Features</a>
+              <a href="#tech" className="text-slate-600 hover:text-blue-600 transition-colors">Technology</a>
+              <a href="#contact" className="text-slate-600 hover:text-blue-600 transition-colors">Contact</a>
             </div>
           </div>
         </div>
@@ -121,7 +121,7 @@ export default function NovoMetricsPortfolio() {
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className={`text-center transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-800 text-blue-300 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
               <Zap className="w-4 h-4" />
               Financial Automation Platform
             </div>
@@ -151,7 +151,7 @@ export default function NovoMetricsPortfolio() {
               </a>
               <a 
                 href="#contact" 
-                className="px-8 py-4 bg-white text-slate-700 border-2 border-slate-300 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-300 transition-all duration-300"
+                className="px-8 py-4 bg-white text-slate-700 border-2 border-slate-300 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-300"
               >
                 Get In Touch
               </a>
@@ -161,15 +161,15 @@ export default function NovoMetricsPortfolio() {
           {/* Stats */}
           <div className={`grid md:grid-cols-3 gap-6 mt-16 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
-              <div className="text-4xl font-bold text-blue-300 mb-2">90%</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">90%</div>
               <div className="text-slate-600">Reduction in Manual Work</div>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
-              <div className="text-4xl font-bold text-blue-300 mb-2">Real-time</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">Real-time</div>
               <div className="text-slate-600">Financial Visibility</div>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
-              <div className="text-4xl font-bold text-blue-300 mb-2">100%</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">100%</div>
               <div className="text-slate-600">Custom Built Solutions</div>
             </div>
           </div>
@@ -181,7 +181,7 @@ export default function NovoMetricsPortfolio() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-800 text-blue-300 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
                 <Target className="w-4 h-4" />
                 Our Mission
               </div>
@@ -204,7 +204,7 @@ export default function NovoMetricsPortfolio() {
             <div className="space-y-4">
               <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-2xl p-6 border border-blue-100">
                 <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
-                  <CheckCircle2 className="w-6 h-6 text-blue-300" />
+                  <CheckCircle2 className="w-6 h-6 text-blue-600" />
                   The Problem
                 </h3>
                 <ul className="space-y-2 text-slate-600">
@@ -217,7 +217,7 @@ export default function NovoMetricsPortfolio() {
 
               <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-2xl p-6 border border-blue-100">
                 <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
-                  <CheckCircle2 className="w-6 h-6 text-blue-300" />
+                  <CheckCircle2 className="w-6 h-6 text-blue-600" />
                   Our Solution
                 </h3>
                 <ul className="space-y-2 text-slate-600">
@@ -236,7 +236,7 @@ export default function NovoMetricsPortfolio() {
       <section id="features" className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-800 text-blue-300 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
               <Award className="w-4 h-4" />
               Core Capabilities
             </div>
@@ -277,7 +277,7 @@ export default function NovoMetricsPortfolio() {
       <section id="projects" className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-800 text-blue-300 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
               <FileText className="w-4 h-4" />
               Portfolio Projects
             </div>
@@ -336,7 +336,7 @@ export default function NovoMetricsPortfolio() {
                       {project.metrics.map((metric, i) => (
                         <span 
                           key={i}
-                          className="px-3 py-1 bg-blue-800 text-blue-300 text-xs rounded-full font-medium"
+                          className="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full font-medium"
                         >
                           {metric}
                         </span>
@@ -369,7 +369,7 @@ export default function NovoMetricsPortfolio() {
               className="text-4xl md:text-5xl font-bold text-slate-900 mb-6"
               style={{ fontFamily: "'Outfit', sans-serif" }}
             >
-              Technology <span className="text-blue-300">Stack</span>
+              Technology <span className="text-blue-600">Stack</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Built with enterprise-grade tools and modern frameworks
@@ -382,7 +382,7 @@ export default function NovoMetricsPortfolio() {
                 key={index}
                 className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200/50"
               >
-                <h3 className="text-lg font-bold text-blue-300 mb-4">
+                <h3 className="text-lg font-bold text-blue-600 mb-4">
                   {stack.category}
                 </h3>
                 <ul className="space-y-2">
@@ -413,7 +413,7 @@ export default function NovoMetricsPortfolio() {
                     phase.status === 'completed' 
                       ? 'bg-green-50 border-green-300'
                       : phase.status === 'current'
-                      ? 'bg-blue-800 border-blue-400'
+                      ? 'bg-blue-50 border-blue-400'
                       : 'bg-slate-50 border-slate-300'
                   }`}
                 >
@@ -423,7 +423,7 @@ export default function NovoMetricsPortfolio() {
                       phase.status === 'completed'
                         ? 'bg-green-200 text-green-800'
                         : phase.status === 'current'
-                        ? 'bg-blue-800 text-blue-300'
+                        ? 'bg-blue-200 text-blue-800'
                         : 'bg-slate-200 text-slate-700'
                     }`}>
                       {phase.status}
@@ -486,7 +486,7 @@ export default function NovoMetricsPortfolio() {
 
           <a 
             href="mailto:shwetha@novometrics.in"
-            className="inline-block px-10 py-4 bg-white text-blue-300 rounded-xl text-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+            className="inline-block px-10 py-4 bg-white text-blue-700 rounded-xl text-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
           >
             Schedule a Consultation
           </a>
@@ -496,7 +496,7 @@ export default function NovoMetricsPortfolio() {
       {/* Footer */}
       <footer className="py-8 px-6 bg-slate-900 text-slate-400">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="mb-2">© 2024 NovoMetrics. Financial Intelligence for Growing Businesses.</p>
+          <p className="mb-2">© 2026 NovoMetrics LLP. Financial Intelligence for Businesses.</p>
           <p className="text-sm">
             <a href="https://novometrics.in" className="hover:text-blue-400 transition-colors">novometrics.in</a>
           </p>
