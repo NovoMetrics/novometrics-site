@@ -93,7 +93,7 @@ export default function NovoMetricsPortfolio() {
     <div className="min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-700 ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
-        <div className="max-w-7xl mx-auto px-6 py-4 backdrop-blur-xl bg-blue-900/50 backdrop-blur-lg border border-blue-700/80 border-b border-slate-200/50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 py-4 backdrop-blur-xl bg-white/80 border-b border-slate-200/50 shadow-sm">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
@@ -151,7 +151,7 @@ export default function NovoMetricsPortfolio() {
               </a>
               <a 
                 href="#contact" 
-                className="px-8 py-4 bg-blue-900/50 backdrop-blur-lg border border-blue-700 text-slate-700 border-2 border-slate-300 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-300 transition-all duration-300"
+                className="px-8 py-4 bg-white text-slate-700 border-2 border-slate-300 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-300 transition-all duration-300"
               >
                 Get In Touch
               </a>
@@ -160,15 +160,15 @@ export default function NovoMetricsPortfolio() {
 
           {/* Stats */}
           <div className={`grid md:grid-cols-3 gap-6 mt-16 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="bg-blue-900/50 backdrop-blur-lg border border-blue-700 rounded-2xl p-8 shadow-lg border border-slate-200/50">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
               <div className="text-4xl font-bold text-blue-300 mb-2">90%</div>
               <div className="text-slate-600">Reduction in Manual Work</div>
             </div>
-            <div className="bg-blue-900/50 backdrop-blur-lg border border-blue-700 rounded-2xl p-8 shadow-lg border border-slate-200/50">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
               <div className="text-4xl font-bold text-blue-300 mb-2">Real-time</div>
               <div className="text-slate-600">Financial Visibility</div>
             </div>
-            <div className="bg-blue-900/50 backdrop-blur-lg border border-blue-700 rounded-2xl p-8 shadow-lg border border-slate-200/50">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
               <div className="text-4xl font-bold text-blue-300 mb-2">100%</div>
               <div className="text-slate-600">Custom Built Solutions</div>
             </div>
@@ -177,7 +177,7 @@ export default function NovoMetricsPortfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-6 bg-blue-900/50 backdrop-blur-lg border border-blue-700">
+      <section id="about" className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -255,7 +255,7 @@ export default function NovoMetricsPortfolio() {
             {features.map((feature, index) => (
               <div 
                 key={index}
-                className="bg-blue-900/50 backdrop-blur-lg border border-blue-700 rounded-2xl p-8 shadow-lg border border-slate-200/50 hover:shadow-xl hover:border-blue-300 transition-all duration-300 hover:-translate-y-1"
+                className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50 hover:shadow-xl hover:border-blue-300 transition-all duration-300 hover:-translate-y-1"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center text-white mb-6">
@@ -274,7 +274,7 @@ export default function NovoMetricsPortfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-6 bg-blue-900/50 backdrop-blur-lg border border-blue-700">
+      <section id="projects" className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-800 text-blue-300 rounded-full text-sm font-medium mb-6">
@@ -298,7 +298,7 @@ export default function NovoMetricsPortfolio() {
                 className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                   activeTab === tab
                     ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-blue-900/50 backdrop-blur-lg border border-blue-700 text-slate-600 border-2 border-slate-200 hover:border-blue-300'
+                    : 'bg-white text-slate-600 border-2 border-slate-200 hover:border-blue-300'
                 }`}
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -311,7 +311,7 @@ export default function NovoMetricsPortfolio() {
             {filteredProjects.map((project, index) => (
               <div 
                 key={project.id}
-                className="bg-blue-900/50 backdrop-blur-lg border border-blue-700 rounded-2xl overflow-hidden shadow-lg border border-slate-200/50 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                className="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200/50 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
               >
                 <div className="relative h-48 overflow-hidden">
                   <img 
@@ -380,7 +380,7 @@ export default function NovoMetricsPortfolio() {
             {techStack.map((stack, index) => (
               <div 
                 key={index}
-                className="bg-blue-900/50 backdrop-blur-lg border border-blue-700 rounded-2xl p-6 shadow-lg border border-slate-200/50"
+                className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200/50"
               >
                 <h3 className="text-lg font-bold text-blue-300 mb-4">
                   {stack.category}
@@ -464,7 +464,7 @@ export default function NovoMetricsPortfolio() {
               href="https://github.com" 
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-blue-900/50 backdrop-blur-lg border border-blue-700/10 backdrop-blur-sm border border-white/20 rounded-xl hover:bg-blue-900/50 backdrop-blur-lg border border-blue-700/20 transition-all duration-300"
+              className="p-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl hover:bg-white/20 transition-all duration-300"
             >
               <Github className="w-6 h-6" />
             </a>
@@ -472,13 +472,13 @@ export default function NovoMetricsPortfolio() {
               href="https://linkedin.com" 
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-blue-900/50 backdrop-blur-lg border border-blue-700/10 backdrop-blur-sm border border-white/20 rounded-xl hover:bg-blue-900/50 backdrop-blur-lg border border-blue-700/20 transition-all duration-300"
+              className="p-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl hover:bg-white/20 transition-all duration-300"
             >
               <Linkedin className="w-6 h-6" />
             </a>
             <a 
               href="mailto:shwetha@novometrics.in"
-              className="p-4 bg-blue-900/50 backdrop-blur-lg border border-blue-700/10 backdrop-blur-sm border border-white/20 rounded-xl hover:bg-blue-900/50 backdrop-blur-lg border border-blue-700/20 transition-all duration-300"
+              className="p-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl hover:bg-white/20 transition-all duration-300"
             >
               <Mail className="w-6 h-6" />
             </a>
@@ -486,7 +486,7 @@ export default function NovoMetricsPortfolio() {
 
           <a 
             href="mailto:shwetha@novometrics.in"
-            className="inline-block px-10 py-4 bg-blue-900/50 backdrop-blur-lg border border-blue-700 text-blue-300 rounded-xl text-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+            className="inline-block px-10 py-4 bg-white text-blue-300 rounded-xl text-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
           >
             Schedule a Consultation
           </a>
