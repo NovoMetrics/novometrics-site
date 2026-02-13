@@ -11,6 +11,7 @@ export default function NovoMetricsPortfolio() {
 
   const projects = [
     {
+      
       id: 1,
       category: 'startup',
       title: "Startup KPI Dashboard",
@@ -23,7 +24,7 @@ export default function NovoMetricsPortfolio() {
       id: 2,
       category: 'healthcare',
       title: "Healthcare Finance Reporting",
-      description: "Automated financial reporting system for hospitals and clinics, consolidating billing, expenses, and operational metrics into actionable insights.",
+      description: "Automated financial reporting system for hospitals and clinics, expenses, and operational metrics into actionable insights.",
       tech: ["R/Shiny", "MySQL", "API Connectors"],
       image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80",
       metrics: ["Patient Revenue Analysis", "Department P&L", "Operational Efficiency"]
@@ -32,7 +33,7 @@ export default function NovoMetricsPortfolio() {
       id: 3,
       category: 'msme',
       title: "MSME P&L Automation",
-      description: "End-to-end profit & loss automation for MSMEs, eliminating manual Excel work and providing real-time financial visibility to leadership teams.",
+      description: "End-to-end MIS automation for MSMEs, eliminating manual Excel work and providing real-time financial visibility to leadership teams.",
       tech: ["Power BI", "MySQL", "Tally API"],
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
       metrics: ["Automated P&L", "Expense Categorization", "Margin Analysis"]
