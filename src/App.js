@@ -1,12 +1,83 @@
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, Database, BarChart3, Shield, Clock, Users, CheckCircle2, ArrowRight, Github, Linkedin, Mail, FileText, Zap, Target, Award } from 'lucide-react';
+import { TrendingUp, Database, BarChart3, Shield, Clock, Users, CheckCircle2, ArrowRight, Linkedin, Mail, Zap, Target, Award } from 'lucide-react';
+
+const FeaturedSolution = ({ project }) => {
+  const [currentImg, setCurrentImg] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImg((prev) => (prev + 1) % project.screenshots.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [project.screenshots.length, project.id]);
+
+  return (
+    // Removed bg-white, shadow, and border. Increased padding and width.
+    <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 py-24 border-b border-slate-200 last:border-0">
+      
+      {/* LEFT SIDE: Expanded Content */}
+      <div className="w-full lg:w-5/12 space-y-10">
+        <div className="space-y-6">
+          {/* Increased heading from text-5xl to text-6xl */}
+          <h3 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight leading-[1.1]" style={{ fontFamily: "'Outfit', sans-serif" }}>
+            {project.title}
+          </h3>
+          {/* Increased description text size */}
+          <p className="text-xl md:text-2xl text-slate-500 leading-relaxed font-light">
+            {project.description}
+          </p>
+        </div>
+
+        <div className="pt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {project.metrics.map((metric, i) => (
+              <div key={i} className="flex items-center gap-3 text-lg text-slate-800 font-medium">
+                <div className="w-2 h-2 bg-blue-600 rounded-full" />
+                {metric}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* RIGHT SIDE: Massive Image Display */}
+      <div className="w-full lg:w-7/12 relative group">
+        <div className="relative aspect-[16/10] overflow-hidden rounded-[2.5rem] bg-slate-100 shadow-[0_30px_100px_rgba(0,0,0,0.12)]">
+          {project.screenshots.map((img, idx) => (
+            <img
+              key={idx}
+              src={img}
+              alt={`${project.title} preview`}
+              className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out transform ${
+                idx === currentImg ? 'opacity-100 scale-100' : 'opacity-0 scale-110'
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Navigation Dots (Positioned lower to stay out of the way) */}
+        <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 flex gap-3">
+          {project.screenshots.map((_, idx) => (
+            <div 
+              key={idx}
+              className={`h-1.5 transition-all duration-500 rounded-full ${
+                idx === currentImg ? 'bg-blue-600 w-10' : 'bg-slate-300 w-2'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default function NovoMetricsPortfolio() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [activeTab, setActiveTab] = useState('all');
 
   useEffect(() => {
     setIsLoaded(true);
+    // This changes the text on the browser tab
+    document.title = "NovoMetrics | Financial Intelligence";    
   }, []);
 
   const projects = [
@@ -16,8 +87,7 @@ export default function NovoMetricsPortfolio() {
       category: 'startup',
       title: "Startup KPI Dashboard",
       description: "Real-time financial metrics dashboard for seed to Series B startups, tracking revenue growth, burn rate, runway, and key performance indicators.",
-      tech: ["R/Shiny", "MySQL", "Power BI", "Auth0"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      screenshots: ["images/sample_1.jpeg", "images/sample_2.jpeg", "images/sample_3.jpeg"],
       metrics: ["Revenue Trends", "Cash Flow Analysis", "Burn Rate Tracking"]
     },
     {
@@ -25,17 +95,15 @@ export default function NovoMetricsPortfolio() {
       category: 'healthcare',
       title: "Healthcare Finance Reporting",
       description: "Automated financial reporting system for hospitals and clinics, expenses, and operational metrics into actionable insights.",
-      tech: ["R/Shiny", "MySQL", "API Connectors"],
-      image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80",
+      screenshots: ["images/sample_1.jpeg", "images/sample_2.jpeg", "images/sample_3.jpeg"],
       metrics: ["Patient Revenue Analysis", "Department P&L", "Operational Efficiency"]
     },
     {
       id: 3,
-      category: 'msme',
+      category: 'MSME',
       title: "MSME P&L Automation",
       description: "End-to-end MIS automation for MSMEs, eliminating manual Excel work and providing real-time financial visibility to leadership teams.",
-      tech: ["Power BI", "MySQL", "Tally API"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+      screenshots: ["images/sample_1.jpeg", "images/sample_2.jpeg", "images/sample_3.jpeg"],
       metrics: ["Automated P&L", "Expense Categorization", "Margin Analysis"]
     }
   ];
@@ -74,43 +142,77 @@ export default function NovoMetricsPortfolio() {
   ];
 
   const techStack = [
-    { category: "Frontend", items: ["Python/Shiny", "Power BI", "Custom Dashboards"] },
-    { category: "Backend", items: ["Python(ETL & Validation)", "MySQL/PostgreSQL", "API Connectors"] },
-    { category: "Security", items: ["Auth0", "Role-based Access", "Data Encryption"] },
-    { category: "Infrastructure", items: ["Cloud Hosting", "GitHub", "Automated Backups"] }
+    { 
+      category: "Data & Analysis", 
+      description: "Industrial strength processing",
+      items: [
+        { name: "Python", logo: "images/python.svg" },
+        { name: "PostgreSQL", logo: "images/postgresql.svg" },
+        { name: "Pandas", logo: "images/pandas.svg" }
+      ] 
+    },
+    { 
+      category: "Visualization", 
+      description: "Interactive executive insights",
+      items: [
+        { name: "Power BI", logo: "images/powerbi.png" },
+        { name: "Plotly", logo: "images/plotly.svg" },
+      ] 
+    },
+    { 
+      category: "Security & Cloud", 
+      description: "Enterprise-grade protection",
+      items: [
+        { name: "Auth0", logo: "images/auth0.svg" },
+        { name: "AWS", logo: "images/aws.png" },
+        { name: "Docker", logo: "images/docker.svg" }
+      ] 
+    }
   ];
 
-  const roadmap = [
-    { phase: "Phase 1", status: "completed", items: ["MySQL/PostgreSQL", "KPI Dashboards", "Manual/Scheduled Refresh", "Auth0 Integration"] },
-    { phase: "Phase 2", status: "current", items: ["API-based Ingestion", "Automated ETL", "Multi-source Joins", "Email Reports"] },
-    { phase: "Phase 3", status: "planned", items: ["Industry Benchmarking", "Threshold Alerts", "AI Projections", "Advanced Forecasting"] }
-  ];
-
-  const filteredProjects = activeTab === 'all' 
-    ? projects 
-    : projects.filter(p => p.category === activeTab);
+  const scrollToTop = (e) => {
+    e.preventDefault(); // Prevents the '#' from appearing in your URL
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
-      {/* Navigation */}
+      {/* Main Logo & Text */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-700 ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
         <div className="max-w-7xl mx-auto px-6 py-4 backdrop-blur-xl bg-white/80 border-b border-slate-200/50 shadow-sm">
           <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-                <TrendingUp className="w-6 h-6 text-white" />
+            
+            {/* Wrapped Logo and Text in a clickable container */}
+            <div 
+              onClick={scrollToTop} 
+              className="flex items-center gap-3 cursor-pointer group"
+            >
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
+                <img 
+                  src="/images/logo.svg"
+                  alt="NovoMetrics Logo" 
+                  className="w-full h-full object-contain" 
+                />
               </div>
               <div>
-                <div className="text-xl font-bold text-slate-800" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                <div 
+                  className="text-xl font-bold text-slate-800 transition-colors group-hover:text-blue-600" 
+                  style={{ fontFamily: "'Outfit', sans-serif" }}
+                >
                   NovoMetrics
                 </div>
                 <div className="text-xs text-slate-500">Financial Intelligence</div>
               </div>
             </div>
+            
+            {/*Navigation Bar*/}
             <div className="hidden md:flex gap-8 text-sm font-medium">
               <a href="#about" className="text-slate-600 hover:text-blue-600 transition-colors">About</a>
-              <a href="#projects" className="text-slate-600 hover:text-blue-600 transition-colors">Projects</a>
               <a href="#features" className="text-slate-600 hover:text-blue-600 transition-colors">Features</a>
+              <a href="#solutions" className="text-slate-600 hover:text-blue-600 transition-colors">Solutions</a>
               <a href="#tech" className="text-slate-600 hover:text-blue-600 transition-colors">Technology</a>
               <a href="#contact" className="text-slate-600 hover:text-blue-600 transition-colors">Contact</a>
             </div>
@@ -145,10 +247,10 @@ export default function NovoMetricsPortfolio() {
 
             <div className="flex gap-4 justify-center flex-wrap">
               <a 
-                href="#projects" 
+                href="#solutions" 
                 className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
               >
-                View Portfolio <ArrowRight className="w-5 h-5" />
+                Solutions <ArrowRight className="w-5 h-5" />
               </a>
               <a 
                 href="#contact" 
@@ -157,7 +259,19 @@ export default function NovoMetricsPortfolio() {
                 Get In Touch
               </a>
             </div>
+
+          {/* New Hero Image Addition */}
+          <div className="max-w-7xl mx-auto mt-4 px-4">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 transition-transform duration-500">
+              <img 
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" 
+                alt="Startup KPI Dashboard Preview" 
+                className="w-full h-auto object-cover"
+              />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent pointer-events-none" />
+            </div>  
           </div>
+        </div>
         {/* Stats */}
         <div
           className={`grid md:grid-cols-4 gap-6 mt-16 transition-all duration-1000 delay-300 ${
@@ -288,176 +402,74 @@ export default function NovoMetricsPortfolio() {
           </div>
         </div>
       </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-20 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+      
+      {/* Solutions Section - Expanded and Seamless */}
+      <section id="solutions" className="py-20 px-6 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto"> 
+          {/* Section Header */}
+          <div className="mb-20">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-              <FileText className="w-4 h-4" />
-              Portfolio Projects
+              <Award className="w-4 h-4" />
+              Industry Solutions
             </div>
-            <h2 
-              className="text-4xl md:text-5xl font-bold text-slate-900 mb-6"
-              style={{ fontFamily: "'Outfit', sans-serif" }}
-            >
-              Real-World Implementations
+            <h2 className="text-5xl md:text-7xl font-bold text-slate-900" style={{ fontFamily: "'Outfit', sans-serif" }}>
+              Proven Implementations
             </h2>
           </div>
 
-          {/* Filter Tabs */}
-          <div className="flex gap-3 justify-center mb-12 flex-wrap">
-            {['all', 'startup', 'healthcare', 'msme'].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-                  activeTab === tab
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-white text-slate-600 border-2 border-slate-200 hover:border-blue-300'
-                }`}
-              >
-                {tab.charAt(0).toUpperCase() + tab.slice(1)}
-              </button>
+          {/* The List: Showcases ALL projects vertically */}
+          <div className="space-y-0">
+            {projects.map(project => (
+              <FeaturedSolution key={project.id} project={project} />
             ))}
           </div>
 
-          {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
-              <div 
-                key={project.id}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200/50 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                </div>
-                
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
-                  
-                  <div className="mb-4">
-                    <div className="text-sm font-semibold text-slate-700 mb-2">Key Metrics:</div>
-                    <div className="flex flex-wrap gap-2">
-                      {project.metrics.map((metric, i) => (
-                        <span 
-                          key={i}
-                          className="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full font-medium"
-                        >
-                          {metric}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, i) => (
-                      <span 
-                        key={i}
-                        className="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
       {/* Technology Stack */}
-      <section id="tech" className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
+      <section id="tech" className="py-24 px-6 bg-slate-50">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 
-              className="text-4xl md:text-5xl font-bold text-slate-900 mb-6"
-              style={{ fontFamily: "'Outfit', sans-serif" }}
-            >
-              Technology <span className="text-blue-600">Stack</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>
+              Our Technology <span className="text-blue-600">Ecosystem</span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Built with enterprise-grade tools and modern frameworks
-            </p>
+            <p className="text-slate-500 text-lg">Industrial strength tools for enterprise-grade intelligence</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {techStack.map((stack, index) => (
               <div 
-                key={index}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200/50"
+                key={index} 
+                className="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-sm flex flex-col items-center text-center"
               >
-                <h3 className="text-lg font-bold text-blue-600 mb-4">
-                  {stack.category}
-                </h3>
-                <ul className="space-y-2">
+                {/* Centered Header Section */}
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">{stack.category}</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed">{stack.description}</p>
+                </div>
+                
+                {/* Centered Logo Grid */}
+                <div className="flex flex-wrap justify-center gap-8">
                   {stack.items.map((item, i) => (
-                    <li 
-                      key={i}
-                      className="flex items-center gap-2 text-slate-700"
-                    >
-                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                      {item}
-                    </li>
+                    <div key={i} className="flex flex-col items-center gap-3">
+                      <div className="w-14 h-14 flex items-center justify-center bg-slate-50 rounded-2xl p-3 transition-transform hover:scale-110">
+                        <img 
+                          src={item.logo} 
+                          alt={item.name} 
+                          className="w-full h-full object-contain"
+                          // If image fails, this makes thealt text look cleaner
+                          onError={(e) => { e.target.src = "https://cdn.simpleicons.org/code/cccccc"; }}
+                        />
+                      </div>
+                      <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                        {item.name}
+                      </span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             ))}
-          </div>
-
-          {/* Roadmap */}
-          <div className="mt-16">
-            <h3 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Development Roadmap
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              {roadmap.map((phase, index) => (
-                <div 
-                  key={index}
-                  className={`rounded-2xl p-6 border-2 ${
-                    phase.status === 'completed' 
-                      ? 'bg-green-50 border-green-300'
-                      : phase.status === 'current'
-                      ? 'bg-blue-50 border-blue-400'
-                      : 'bg-slate-50 border-slate-300'
-                  }`}
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <h4 className="text-xl font-bold text-slate-900">{phase.phase}</h4>
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      phase.status === 'completed'
-                        ? 'bg-green-200 text-green-800'
-                        : phase.status === 'current'
-                        ? 'bg-blue-200 text-blue-800'
-                        : 'bg-slate-200 text-slate-700'
-                    }`}>
-                      {phase.status}
-                    </span>
-                  </div>
-                  <ul className="space-y-2">
-                    {phase.items.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-slate-700 text-sm">
-                        <CheckCircle2 className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
-                          phase.status === 'completed' ? 'text-green-600' : 'text-slate-400'
-                        }`} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -476,14 +488,6 @@ export default function NovoMetricsPortfolio() {
           </p>
 
           <div className="flex gap-4 justify-center mb-12">
-            <a 
-              href="https://github.com" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl hover:bg-white/20 transition-all duration-300"
-            >
-              <Github className="w-6 h-6" />
-            </a>
             <a 
               href="https://linkedin.com" 
               target="_blank"
@@ -504,7 +508,7 @@ export default function NovoMetricsPortfolio() {
             href="mailto:shwetha@novometrics.in"
             className="inline-block px-10 py-4 bg-white text-blue-700 rounded-xl text-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
           >
-            Schedule a Consultation : Ph +91 8197-163-069
+            Schedule a Consultation : +91 8197-163-069
           </a>
         </div>
       </section>
@@ -512,7 +516,7 @@ export default function NovoMetricsPortfolio() {
       {/* Footer */}
       <footer className="py-8 px-6 bg-slate-900 text-slate-400">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="mb-2">© 2026 Novometric Solutions LLP. Financial Intelligence for Businesses.</p>
+          <p className="mb-2">© 2026 Novometric Solutions (LLP). Financial Intelligence for Businesses.</p>
           <p className="text-sm">
             <a href="https://www.novometrics.in" className="hover:text-blue-400 transition-colors">novometrics.in</a>
           </p>
