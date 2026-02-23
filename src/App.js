@@ -182,43 +182,33 @@ export default function NovoMetricsPortfolio() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
       {/* Main Logo & Text */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-700 ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
-        <div className="max-w-7xl mx-auto px-6 py-4 backdrop-blur-xl bg-white/80 border-b border-slate-200/50 shadow-sm">
-          <div className="flex justify-between items-center">
-            
-            {/* Wrapped Logo and Text in a clickable container */}
-            <div 
-              onClick={scrollToTop} 
-              className="flex items-center gap-3 cursor-pointer group"
-            >
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
-                <img 
-                  src="/images/logo.svg"
-                  alt="NovoMetrics Logo" 
-                  className="w-full h-full object-contain" 
-                />
-              </div>
-              <div>
-                <div 
-                  className="text-xl font-bold text-slate-800 transition-colors group-hover:text-blue-600" 
-                  style={{ fontFamily: "'Outfit', sans-serif" }}
-                >
-                  NovoMetrics
-                </div>
-                <div className="text-xs text-slate-500">Financial Intelligence</div>
-              </div>
-            </div>
-            
-            {/*Navigation Bar*/}
-            <div className="hidden md:flex gap-8 text-sm font-medium">
-              <a href="#about" className="text-slate-600 hover:text-blue-600 transition-colors">About</a>
-              <a href="#features" className="text-slate-600 hover:text-blue-600 transition-colors">Features</a>
-              <a href="#solutions" className="text-slate-600 hover:text-blue-600 transition-colors">Solutions</a>
-              <a href="#tech" className="text-slate-600 hover:text-blue-600 transition-colors">Technology</a>
-              <a href="#contact" className="text-slate-600 hover:text-blue-600 transition-colors">Contact</a>
-            </div>
-          </div>
+  <div className="max-w-7xl mx-auto px-6 h-16 backdrop-blur-xl bg-white/80 border-b border-slate-200/50 shadow-sm">
+    <div className="flex justify-between items-center h-full">
+      
+      <div 
+        onClick={scrollToTop} 
+        className="flex items-center gap-3 cursor-pointer group"
+      >
+        <div className="w-18 h-18 rounded-lg flex items-center justify-center overflow-hidden">
+          <img 
+            src="/images/logo.svg"
+            alt="NovoMetrics Logo" 
+            className="w-full h-full object-contain" 
+          />
         </div>
-      </nav>
+      </div>
+
+      <div className="hidden md:flex gap-8 text-sm font-medium">
+        <a href="#about" className="text-slate-600 hover:text-blue-600 transition-colors">About</a>
+        <a href="#features" className="text-slate-600 hover:text-blue-600 transition-colors">Features</a>
+        <a href="#solutions" className="text-slate-600 hover:text-blue-600 transition-colors">Solutions</a>
+        <a href="#tech" className="text-slate-600 hover:text-blue-600 transition-colors">Technology</a>
+        <a href="#contact" className="text-slate-600 hover:text-blue-600 transition-colors">Contact</a>
+      </div>
+
+    </div>
+  </div>
+</nav>
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
