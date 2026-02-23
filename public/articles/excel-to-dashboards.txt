@@ -1,0 +1,21 @@
+For most MSMEs, the monthly financial close looks something like this: an accountant exports data from Tally, pastes it into Excel, manually formats a P&L, and emails it to the founder. By the time it lands in the inbox, the data is already 2-3 weeks old.
+
+This isn't a people problem. It's a process problem.
+
+THE HIDDEN COST OF MANUAL REPORTING
+
+Manual reporting doesn't just take time — it introduces risk. A misplaced formula, a copy-paste error, or an outdated file version can quietly corrupt the numbers leadership relies on to make decisions.
+
+Beyond accuracy, there's the issue of speed. In a fast-moving business, waiting until the 15th of the month to know how last month went is too slow.
+
+WHAT AUTOMATION ACTUALLY LOOKS LIKE
+
+Financial automation for an MSME doesn't mean buying expensive enterprise software. It means building lightweight pipelines that pull data directly from your accounting system, categorize and validate it automatically, and populate a live dashboard your team can check any time.
+
+The result is a founder who knows their gross margin at 9am on the 1st of the month — not the 15th.
+
+WHERE TO START
+
+The best starting point is your P&L. Automating even just the monthly P&L report eliminates the most time-consuming part of your finance team's workflow and gives leadership faster visibility into revenue, costs, and margins.
+
+From there, you can layer in cash flow tracking, department-level breakdowns, and KPI dashboards as your needs grow.
