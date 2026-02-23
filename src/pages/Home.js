@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, Database, BarChart3, Shield, Clock, Users, ArrowRight, Linkedin, Mail, Zap, Target, Award } from 'lucide-react';
+import { TrendingUp, Database, BarChart3, Shield, Clock, Users, ArrowRight, Linkedin, Mail, Zap, Award } from 'lucide-react';
 
 const FeaturedSolution = ({ project }) => {
   const [currentImg, setCurrentImg] = useState(0);
