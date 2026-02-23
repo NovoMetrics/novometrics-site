@@ -9,7 +9,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-16 backdrop-blur-xl bg-white/80 border-b border-slate-200/50 shadow-sm">
         <div className="flex justify-between items-center h-full">
 
-          <Link to="/" className="flex items-center gap-3">
+          <Link
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="flex items-center gap-3"
+          >
             <div className="w-40 h-40 flex items-center justify-center">
               <img src="/images/logo.svg" alt="NovoMetrics Logo" className="w-full h-full object-contain" />
             </div>
@@ -17,7 +21,11 @@ export default function Navbar() {
 
           <div className="hidden md:flex gap-8 text-sm font-medium">
             {/* About → separate page */}
-            <Link to="/about" className="text-slate-600 hover:text-blue-600 transition-colors">
+            <Link
+              to="/about"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="text-slate-600 hover:text-blue-600 transition-colors"
+            >
               About
             </Link>
 
@@ -36,7 +44,11 @@ export default function Navbar() {
             )}
 
             {/* Blog → separate page */}
-            <Link to="/blog" className="text-slate-600 hover:text-blue-600 transition-colors">
+            <Link
+              to="/blog"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="text-slate-600 hover:text-blue-600 transition-colors"
+            >
               Blog
             </Link>
 
