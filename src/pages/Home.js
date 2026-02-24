@@ -342,46 +342,118 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 
-            className="text-4xl md:text-5xl font-bold mb-6"
-            style={{ fontFamily: "'Outfit', sans-serif" }}
-          >
-            Ready to Automate Your Finance?
-          </h2>
-          <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
-            Let's discuss how NovoMetrics can transform your financial operations with custom automation solutions.
-          </p>
+<section id="contact" className="py-20 px-6 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+  <div className="max-w-6xl mx-auto">
+    <h2
+      className="text-4xl md:text-5xl font-bold mb-12 text-center"
+      style={{ fontFamily: "'Outfit', sans-serif" }}
+    >
+      Ready to Automate Your Finance?
+    </h2>
 
-          <div className="flex gap-4 justify-center mb-12">
-            <a 
-              href="https://linkedin.com" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl hover:bg-white/20 transition-all duration-300"
-            >
-              <Linkedin className="w-6 h-6" />
-            </a>
-            <a 
-              href="mailto:shwetha@novometrics.in"
-              className="p-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl hover:bg-white/20 transition-all duration-300"
-            >
-              <Mail className="w-6 h-6" />
-            </a>
-          </div>
+    <div className="grid md:grid-cols-2 gap-12 items-start">
 
-          <a 
-            href="mailto:shwetha@novometrics.in"
-            className="inline-block px-10 py-4 bg-white text-blue-700 rounded-xl text-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+      {/* Left Side */}
+      <div className="flex flex-col gap-8" style={{ alignItems: 'center' }}>
+        <p className="text-xl text-blue-100 leading-relaxed text-center">
+          Let's discuss how NovoMetrics can transform your financial operations with custom automation solutions.
+        </p>
+
+        <div className="flex flex-col gap-4" style={{ alignItems: 'center', width: '100%' }}>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl hover:bg-white/20 transition-all duration-300"
+            style={{ width: '280px', justifyContent: 'center' }}
           >
-            Schedule a Consultation : +91 8197-163-069
+            <Linkedin className="w-5 h-5" />
+            <span className="font-medium">Connect on LinkedIn</span>
+          </a>
+
+          <a
+            href="mailto:contact@novometrics.in"
+            className="flex items-center gap-3 px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl hover:bg-white/20 transition-all duration-300"
+            style={{ width: '280px', justifyContent: 'center' }}
+          >
+            <Mail className="w-5 h-5" />
+            <span className="font-medium">contact@novometrics.in</span>
+          </a>
+
+          <a
+            href="tel:+918197163069"
+            className="flex items-center justify-center px-8 py-4 bg-white text-blue-700 rounded-xl text-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+            style={{ textAlign: 'center' }}
+          >
+            Schedule a Consultation: +91 8197-163-069
           </a>
         </div>
-      </section>
+      </div>
 
+      {/* Right Side - Contact Form */}
+<div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8">
+  <h3
+    className="text-2xl font-semibold mb-6"
+    style={{ fontFamily: "'Outfit', sans-serif" }}
+  >
+    Send us a message
+  </h3>
+
+  <form
+    name="contact"
+    method="POST"
+    data-netlify="true"
+    data-netlify-honeypot="bot-field"
+    className="flex flex-col gap-4"
+  >
+    {/* Required hidden inputs for Netlify */}
+    <input type="hidden" name="form-name" value="contact" />
+    <input type="hidden" name="bot-field" />
+
+    <input
+      type="text"
+      name="name"
+      placeholder="Your Name"
+      required
+      className="w-full px-4 py-3 bg-white/10 border border-white/25 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:border-white/60 transition-all duration-200"
+    />
+
+    <input
+      type="text"
+      name="company"
+      placeholder="Your Place / Company"
+      className="w-full px-4 py-3 bg-white/10 border border-white/25 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:border-white/60 transition-all duration-200"
+    />
+
+    <input
+      type="email"
+      name="email"
+      placeholder="Your Email"
+      required
+      className="w-full px-4 py-3 bg-white/10 border border-white/25 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:border-white/60 transition-all duration-200"
+    />
+
+    <textarea
+      rows={4}
+      name="message"
+      placeholder="Your Query"
+      required
+      className="w-full px-4 py-3 bg-white/10 border border-white/25 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:border-white/60 transition-all duration-200 resize-none"
+    />
+
+    <button
+      type="submit"
+      className="w-full py-4 bg-white text-blue-700 rounded-xl text-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+
+    </div>
+  </div>
+</section>        
       {/* Footer */}
       <footer className="py-8 px-6 bg-slate-900 text-slate-400">
         <div className="max-w-7xl mx-auto text-center">
