@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { TrendingUp, Database, BarChart3, Shield, Clock, Users, ArrowRight, Linkedin, Mail, Zap, Award } from 'lucide-react';
+import HeroImage from '../components/HeroImage';
 
 const FeaturedSolution = ({ project }) => {
   const [currentImg, setCurrentImg] = useState(0);
@@ -87,7 +88,7 @@ export default function Home() {
       category: 'healthcare',
       title: "Healthcare Finance Reporting",
       description: "Automated financial reporting system for hospitals and clinics, expenses, and operational metrics into actionable insights.",
-      screenshots: ["images/sample_1.jpeg", "images/sample_2.jpeg", "images/sample_3.jpeg"],
+      screenshots: ["images/HCF1.jpeg", "images/HCF2.jpeg", "images/HCF3.PNG"],
       metrics: ["Patient Revenue Analysis", "Department P&L", "Operational Efficiency"]
     },
     {
@@ -166,82 +167,106 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className={`text-center transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-              <Zap className="w-4 h-4" />
-              Financial Automation Platform
-            </div>
-            
-            <h1 
-              className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 leading-tight"
-              style={{ fontFamily: "'Outfit', sans-serif" }}
-            >
-              From Excel Chaos to
-              <br />
-              <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                Financial Intelligence
-              </span>
-            </h1>
-            
-            <p className="text-xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Automated financial reporting and KPI dashboards for your business. 
-              Real-time financial visibility without any complexity.
-            </p>
+  <section className="pt-32 pb-20 px-6">
+    <div className="max-w-7xl mx-auto">
 
-            <div className="flex gap-4 justify-center flex-wrap">
-              <a 
-                href="#solutions" 
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
-              >
-                Solutions <ArrowRight className="w-5 h-5" />
-              </a>
-              <a 
-                href="#contact" 
-                className="px-8 py-4 bg-white text-slate-700 border-2 border-slate-300 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-300"
-              >
-                Get In Touch
-              </a>
-            </div>
+      {/* Headline block */}
+      <div className={`text-center transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 
-            <div className="max-w-7xl mx-auto mt-4 px-4">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 transition-transform duration-500">
-                <img 
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" 
-                  alt="Startup KPI Dashboard Preview" 
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent pointer-events-none" />
-              </div>  
-            </div>
-          </div>
-
-          {/* Stats */}
-          <div
-            className={`grid md:grid-cols-4 gap-6 mt-16 transition-all duration-1000 delay-300 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
-              <div className="text-4xl font-bold text-blue-600 mb-2">90%</div>
-              <div className="text-slate-600">Reduction in Manual Work</div>
-            </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
-              <div className="text-4xl font-bold text-blue-600 mb-2">Financial Data Quality</div>
-              <div className="text-slate-600">Timely. Accurate. Consistent.</div>
-            </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
-              <div className="text-4xl font-bold text-blue-600 mb-2">Real-time</div>
-              <div className="text-slate-600">Financial Visibility</div>
-            </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
-              <div className="text-4xl font-bold text-blue-600 mb-2">100%</div>
-              <div className="text-slate-600">Custom Built Solutions</div>
-            </div>
-          </div>
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
+          <Zap className="w-4 h-4" />
+          Financial Automation Platform
         </div>
-      </section>
+
+        {/* Headline */}
+        <h1
+          className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 leading-tight"
+          style={{ fontFamily: "'Outfit', sans-serif" }}
+        >
+          From Excel Chaos to
+          <br />
+          <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+            Financial Intelligence
+          </span>
+        </h1>
+
+        {/* Subtext */}
+        <p className="text-xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+          Automated financial reporting and KPI dashboards for your business.
+          Real-time financial visibility without any complexity.
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="flex gap-4 justify-center flex-wrap mb-16">
+          <a
+            href="#solutions"
+            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+          >
+            Solutions <ArrowRight className="w-5 h-5" />
+          </a>
+          <a
+            href="#contact"
+            className="px-8 py-4 bg-white text-slate-700 border-2 border-slate-300 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-300"
+          >
+            Get In Touch
+          </a>
+        </div>
+
+        {/* Hero Visual */}
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
+          <div className="w-full" style={{ position: 'relative' }}>
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '1280px',
+                height: '720px',
+                transformOrigin: 'top left',
+              }}
+              ref={(el) => {
+                if (!el) return;
+                const parent = el.parentElement;
+                const resize = () => {
+                  const scale = parent.offsetWidth / 1280;
+                  el.style.transform = `scale(${scale})`;
+                  parent.style.height = `${600 * scale}px`;
+                };
+                resize();
+                window.addEventListener('resize', resize);
+              }}
+            >
+              <HeroImage />
+            </div>
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 to-transparent pointer-events-none" />
+        </div>
+
+      </div>{/* end text-center */}
+
+      {/* Stats */}
+      <div className={`grid md:grid-cols-4 gap-6 mt-16 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
+          <div className="text-4xl font-bold text-blue-600 mb-2">90%</div>
+          <div className="text-slate-600">Reduction in Manual Work</div>
+        </div>
+        <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
+          <div className="text-4xl font-bold text-blue-600 mb-2">Financial Data Quality</div>
+          <div className="text-slate-600">Timely. Accurate. Consistent.</div>
+        </div>
+        <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
+          <div className="text-4xl font-bold text-blue-600 mb-2">Real-time</div>
+          <div className="text-slate-600">Financial Visibility</div>
+        </div>
+        <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
+          <div className="text-4xl font-bold text-blue-600 mb-2">100%</div>
+          <div className="text-slate-600">Custom Built Solutions</div>
+        </div>
+      </div>
+
+    </div>{/* end max-w-7xl */}
+  </section>
 
       {/* Features Section */}
       <section id="features" className="py-20 px-6">
