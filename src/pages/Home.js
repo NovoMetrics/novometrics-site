@@ -80,7 +80,7 @@ export default function Home() {
       category: 'startup',
       title: "Startup KPI Dashboard",
       description: "Real-time financial metrics dashboard for seed to Series B startups, tracking revenue growth, burn rate, runway, and key performance indicators.",
-      screenshots: ["images/sample_1.jpeg", "images/sample_2.jpeg", "images/sample_3.jpeg"],
+      screenshots: ["images/SF1.PNG", "images/SF2.PNG", "images/SF3.PNG"],
       metrics: ["Revenue Trends", "Cash Flow Analysis", "Burn Rate Tracking"]
     },
     {
@@ -88,7 +88,7 @@ export default function Home() {
       category: 'healthcare',
       title: "Healthcare Finance Reporting",
       description: "Automated financial reporting system for hospitals and clinics, expenses, and operational metrics into actionable insights.",
-      screenshots: ["images/HCF1.jpeg", "images/HCF2.jpeg", "images/HCF3.PNG"],
+      screenshots: ["images/HCF1.PNG", "images/HCF2.PNG", "images/HCF3.PNG"],
       metrics: ["Patient Revenue Analysis", "Department P&L", "Operational Efficiency"]
     },
     {
