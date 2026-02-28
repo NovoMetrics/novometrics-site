@@ -149,7 +149,7 @@ const FeaturedSolution = ({ project }) => {
                 key={idx}
                 src={img}
                 alt={`${project.title} preview`}
-                className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out transform ${
+                className={`absolute inset-0 w-full h-full object-cover object-top transition-all duration-1000 ease-in-out transform ${
                   idx === currentImg ? 'opacity-100 scale-100' : 'opacity-0 scale-110'
                 }`}
               />
@@ -263,7 +263,7 @@ export default function Home() {
       description: "Industrial strength processing",
       items: [
         { name: "Python", logo: "images/python.svg" },
-        { name: "PostgreSQL", logo: "images/postgresql.svg" },
+        { name: "MySQL", logo: "https://cdn.simpleicons.org/mysql/4479A1" },
         { name: "Pandas", logo: "images/pandas.svg" }
       ]
     },
@@ -272,7 +272,7 @@ export default function Home() {
       description: "Interactive executive insights",
       items: [
         { name: "Power BI", logo: "images/powerbi.png" },
-        { name: "Plotly", logo: "images/plotly.svg" },
+        { name: "Shiny/R", logo: "https://cdn.simpleicons.org/r/276DC3" },
       ]
     },
     {
@@ -281,7 +281,6 @@ export default function Home() {
       items: [
         { name: "Auth0", logo: "images/auth0.svg" },
         { name: "AWS", logo: "images/aws.png" },
-        { name: "Docker", logo: "images/docker.svg" }
       ]
     }
   ];
@@ -450,9 +449,14 @@ export default function Home() {
       </section>
 
       {/* ── Technology Stack ── */}
-      <section id="tech" className="py-16 px-6 bg-slate-50"> {/* CHANGE 2: py-24 → py-16 */}
+      <section id="tech" className="py-16 px-6"> {/* bg removed — matches Core Capabilities gradient */}
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12"> {/* CHANGE 2: mb-16 → mb-12 */}
+          <div className="text-center mb-12">
+            {/* Award badge — Tech Stack */}
+            <div className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
+              <Award className="w-4 h-4" />
+              Tech Stack
+            </div>
             <h2
               className="text-4xl md:text-5xl font-bold text-slate-900 mb-4"
               style={{ fontFamily: "'Outfit', sans-serif" }}
@@ -480,7 +484,7 @@ export default function Home() {
                           src={item.logo}
                           alt={item.name}
                           className="w-full h-full object-contain"
-                          onError={(e) => { e.target.src = "https://cdn.simpleicons.org/code/cccccc"; }}
+                          onError={(e) => { e.target.style.opacity = '0.3'; }}
                         />
                       </div>
                       <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
