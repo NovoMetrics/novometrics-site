@@ -226,7 +226,7 @@ export default function Home() {
     {
       icon: <TrendingUp className="w-8 h-8" />,
       title: "Real-time Visibility",
-      description: "Live financial dashboards that update automatically, giving founders instant access to critical metrics."
+      description: "Live financial dashboards that update automatically, giving founders & management instant access to critical metrics."
     },
     {
       icon: <Database className="w-8 h-8" />,
@@ -246,7 +246,7 @@ export default function Home() {
     {
       icon: <Clock className="w-8 h-8" />,
       title: "Automated Data Pipelines",
-      description: "Scheduled data refresh and email delivery, reducing manual work by up to 80%."
+      description: "Scheduled data refresh and email delivery, reducing manual work by 80%."
     },
     {
       icon: <Users className="w-8 h-8" />,
@@ -394,7 +394,7 @@ export default function Home() {
               What We Deliver
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Comprehensive financial automation tailored to your business needs
+              Comprehensive financial reporting automation tailored to your business needs
             </p>
           </div>
 
@@ -426,9 +426,9 @@ export default function Home() {
               <ul className="space-y-3 text-slate-600">
                 {[
                   "Manual Excel-based reporting that takes weeks",
-                  "Delayed month-end numbers that are already stale",
+                  "Delayed month-end numbers",
                   "No real-time visibility for founders and management",
-                  "Raw data that doesn't translate into decisions",
+                  "Raw data that doesn't help in decision making",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2.5 shrink-0" />
@@ -544,7 +544,7 @@ export default function Home() {
             className="text-4xl md:text-5xl font-bold mb-10 text-center"
             style={{ fontFamily: "'Outfit', sans-serif" }}
           >
-            Ready to Automate Your Finance?
+            Ready to Automate Your Reporting?
           </h2>
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
