@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { TrendingUp, Database, BarChart3, Shield, Clock, Users, ArrowRight, Linkedin, Mail, Zap, Award, ChevronRight, X } from 'lucide-react';
+import { TrendingUp, Database, BarChart3, Shield, Clock, Users, ArrowRight, Linkedin, Mail, Zap, Award, ChevronRight, X, CheckCircle2 } from 'lucide-react';
 import HeroImage from '../components/HeroImage';
 
 // ─── Lightbox ───────────────────────────────────────────────────────────────
@@ -40,15 +40,17 @@ const Lightbox = ({ images, startIndex, onClose }) => {
         <ChevronRight className="w-7 h-7 rotate-180" />
       </button>
 
-      {/* Image */}
+      {/* Image — shown from top, full width, no cropping */}
       <div
         className="max-w-5xl w-full mx-16 rounded-2xl overflow-hidden shadow-2xl"
+        style={{ maxHeight: "85vh", overflowY: "auto" }}
         onClick={(e) => e.stopPropagation()}
       >
         <img
           src={images[current]}
           alt={`Preview ${current + 1}`}
-          className="w-full h-auto object-contain"
+          className="w-full h-auto block"
+          style={{ objectPosition: "top" }}
         />
       </div>
 
@@ -80,7 +82,6 @@ const FeaturedSolution = ({ project }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
-  // Slower auto-scroll: 7s instead of 4s
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImg((prev) => (prev + 1) % project.screenshots.length);
@@ -136,9 +137,8 @@ const FeaturedSolution = ({ project }) => {
           </div>
         </div>
 
-        {/* Image carousel */}
+        {/* Image carousel — object-top so screenshots show from the top */}
         <div className="w-full lg:w-7/12 relative group">
-          {/* Clickable image area */}
           <div
             className="relative aspect-[16/10] overflow-hidden rounded-[2.5rem] bg-slate-100 shadow-[0_30px_100px_rgba(0,0,0,0.12)] cursor-zoom-in"
             onClick={openLightbox}
@@ -149,19 +149,18 @@ const FeaturedSolution = ({ project }) => {
                 key={idx}
                 src={img}
                 alt={`${project.title} preview`}
-                className={`absolute inset-0 w-full h-full object-cover object-top transition-all duration-1000 ease-in-out transform ${
+                style={{ objectPosition: "top" }}
+                className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out transform ${
                   idx === currentImg ? 'opacity-100 scale-100' : 'opacity-0 scale-110'
                 }`}
               />
             ))}
 
-            {/* Expand hint */}
             <div className="absolute top-4 right-4 bg-black/30 text-white text-xs px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm">
               Click to expand
             </div>
           </div>
 
-          {/* Right arrow navigation button */}
           <button
             onClick={goNext}
             className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-slate-700 rounded-full p-2.5 shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 z-10"
@@ -170,7 +169,6 @@ const FeaturedSolution = ({ project }) => {
             <ChevronRight className="w-5 h-5" />
           </button>
 
-          {/* Dots */}
           <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 flex gap-3">
             {project.screenshots.map((_, idx) => (
               <button
@@ -219,7 +217,7 @@ export default function Home() {
       category: 'MSME',
       title: "MSME P&L Automation",
       description: "End-to-end MIS automation for MSMEs, eliminating manual Excel work and providing real-time financial visibility to leadership teams.",
-      screenshots: ["images/MSME1.PNG", "images/MSME2.PNG", "images/MSME3.PNG"],
+      screenshots: ["images/MSME1.PNG", "images/MSME2.PNG", "images/MSME3.PNG","images/MSME4.PNG","images/MSME5.PNG"],
       metrics: ["Automated P&L", "Expense Categorization", "Margin Analysis"]
     }
   ];
@@ -289,7 +287,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
 
       {/* ── Hero ── */}
-      <section className="pt-28 pb-12 px-6"> {/* CHANGE 2: reduced pb from pb-20 */}
+      <section className="pt-28 pb-12 px-6">
         <div className="max-w-7xl mx-auto">
           <div className={`text-center transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 
@@ -360,7 +358,7 @@ export default function Home() {
           </div>
 
           {/* Stats */}
-          <div className={`grid md:grid-cols-4 gap-6 mt-12 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}> {/* CHANGE 2: mt-16 → mt-12 */}
+          <div className={`grid md:grid-cols-4 gap-6 mt-12 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200/50">
               <div className="text-4xl font-bold text-blue-600 mb-2">80% Manual Work Reduced</div>
               <div className="text-slate-600">Month-end reporting cut from 5 days to 18 hours</div>
@@ -382,16 +380,13 @@ export default function Home() {
       </section>
 
       {/* ── Features ── */}
-      <section id="features" className="py-14 px-6"> {/* CHANGE 2: py-20 → py-14 */}
+      <section id="features" className="py-14 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12"> {/* CHANGE 2: mb-16 → mb-12 */}
-
-            {/* CHANGE 4: badge centered (already was, kept) */}
+          <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
               <Award className="w-4 h-4" />
               Core Capabilities
             </div>
-
             <h2
               className="text-4xl md:text-5xl font-bold text-slate-900 mb-6"
               style={{ fontFamily: "'Outfit', sans-serif" }}
@@ -403,7 +398,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Feature cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-14">
             {features.map((feature, index) => (
               <div
                 key={index}
@@ -417,21 +413,64 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          {/* ── Problem & Solution ── */}
+          <div className="grid md:grid-cols-2 gap-6">
+
+            {/* The Problem */}
+            <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+              <h3 className="text-xl font-bold text-slate-900 mb-5 flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-slate-400" />
+                The Problem We Solve
+              </h3>
+              <ul className="space-y-3 text-slate-600">
+                {[
+                  "Manual Excel-based reporting that takes weeks",
+                  "Delayed month-end numbers that are already stale",
+                  "No real-time visibility for founders and management",
+                  "Raw data that doesn't translate into decisions",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2.5 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* How We Fix It */}
+            <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-8 shadow-sm text-white">
+              <h3 className="text-xl font-bold mb-5 flex items-center gap-2">
+                <TrendingUp className="w-5 h-5 text-blue-200" />
+                How We Fix It
+              </h3>
+              <ul className="space-y-3 text-blue-100">
+                {[
+                  "Automated P&L and KPI dashboards",
+                  "Centralized data pipelines from your existing tools",
+                  "Founder-ready financial visibility on day one",
+                  "Custom reporting workflows built around your team",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 bg-blue-300 rounded-full mt-2.5 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+          </div>
         </div>
       </section>
 
       {/* ── Solutions ── */}
-      <section id="solutions" className="py-14 px-6 bg-white overflow-hidden"> {/* CHANGE 2: py-20 → py-14 */}
+      <section id="solutions" className="py-14 px-6 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-14 text-center"> {/* CHANGE 3+4: added text-center; mb-20 → mb-14 */}
-
-            {/* CHANGE 4: badge centered */}
+          <div className="mb-14 text-center">
             <div className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
               <Award className="w-4 h-4" />
               Industry Solutions
             </div>
-
-            {/* CHANGE 3: matched font size to other headers — text-4xl md:text-5xl to match "What We Deliver" */}
             <h2
               className="text-4xl md:text-5xl font-bold text-slate-900"
               style={{ fontFamily: "'Outfit', sans-serif" }}
@@ -449,10 +488,9 @@ export default function Home() {
       </section>
 
       {/* ── Technology Stack ── */}
-      <section id="tech" className="py-16 px-6"> {/* bg removed — matches Core Capabilities gradient */}
+      <section id="tech" className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            {/* Award badge — Tech Stack */}
             <div className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
               <Award className="w-4 h-4" />
               Tech Stack
@@ -500,10 +538,10 @@ export default function Home() {
       </section>
 
       {/* ── Contact ── */}
-      <section id="contact" className="py-16 px-6 bg-gradient-to-br from-blue-600 to-blue-800 text-white"> {/* CHANGE 2: py-20 → py-16 */}
+      <section id="contact" className="py-16 px-6 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
         <div className="max-w-6xl mx-auto">
           <h2
-            className="text-4xl md:text-5xl font-bold mb-10 text-center" /* CHANGE 2: mb-12 → mb-10 */
+            className="text-4xl md:text-5xl font-bold mb-10 text-center"
             style={{ fontFamily: "'Outfit', sans-serif" }}
           >
             Ready to Automate Your Finance?
@@ -539,7 +577,7 @@ export default function Home() {
                   href="tel:+918197163069"
                   className="flex items-center justify-center px-8 py-4 bg-white text-blue-700 rounded-xl text-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
                 >
-                  Schedule a Consultation: +91 8197-163-069
+                  Call Us! @ +91 8197-163-069
                 </a>
               </div>
             </div>

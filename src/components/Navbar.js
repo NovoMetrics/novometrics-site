@@ -32,6 +32,16 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8 text-sm font-medium">
+
+            {/* Home — always scrolls to top of home page */}
+            <Link
+              to="/"
+              onClick={scrollTop}
+              className="text-slate-600 hover:text-blue-600 transition-colors"
+            >
+              Home
+            </Link>
+
             <Link
               to="/about"
               onClick={scrollTop}
@@ -83,6 +93,15 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200/50 shadow-lg">
           <div className="flex flex-col px-6 py-4 gap-1">
+
+            {/* Home */}
+            <Link
+              to="/"
+              onClick={scrollTop}
+              className="py-3 px-4 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-colors"
+            >
+              Home
+            </Link>
 
             <Link
               to="/about"
