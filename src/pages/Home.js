@@ -217,7 +217,7 @@ export default function Home() {
       category: 'MSME',
       title: "MSME P&L Automation",
       description: "End-to-end MIS automation for MSMEs, eliminating manual Excel work and providing real-time financial visibility to leadership teams.",
-      screenshots: ["images/MSME1.PNG", "images/MSME2.PNG", "images/MSME3.PNG","images/MSME4.PNG","images/MSME5.PNG"],
+      screenshots: ["images/MSME1.PNG", "images/MSME11.PNG", "images/MSME2.PNG", "images/MSME3.PNG","images/MSME4.PNG","images/MSME5.PNG","images/MSME6.PNG"],
       metrics: ["Automated P&L", "Expense Categorization", "Margin Analysis"]
     }
   ];

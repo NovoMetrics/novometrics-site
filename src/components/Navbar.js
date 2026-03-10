@@ -70,6 +70,14 @@ export default function Navbar() {
               Blog
             </Link>
 
+            <Link
+              to="/faq"
+              onClick={scrollTop}
+              className="text-slate-600 hover:text-blue-600 transition-colors"
+            >
+              FAQ
+            </Link>
+
             {isHome ? (
               <a href="#contact" className="text-slate-600 hover:text-blue-600 transition-colors">Contact Us</a>
             ) : (
@@ -153,6 +161,14 @@ export default function Navbar() {
               className="py-3 px-4 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-colors"
             >
               Blog
+            </Link>
+
+            <Link
+              to="/faq"
+              onClick={scrollTop}
+              className="py-3 px-4 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-colors"
+            >
+              FAQ
             </Link>
 
             {isHome ? (
